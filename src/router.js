@@ -9,9 +9,14 @@ import NotFound from "@/pages/NotFound.vue";
 const routes = [
     { path: '/', redirect: '/coaches' },
     { path: '/coaches', component: CoachesList },
-    { path: '/coaches/:id', component: CoachDetail, children: [
+    {
+        path: '/coaches/:id',
+        component: CoachDetail,
+        props: true,
+        children: [
             { path: 'contact', component: ContactCoach },
-        ]},
+        ]
+    },
     { path: '/register', component: CoachRegistration },
     { path: '/requests', component: RequestsReceived },
     { path: '/:notFound(.*)', component: NotFound },
